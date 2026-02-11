@@ -27,6 +27,21 @@ We also track the visual feature tranks throughout training, and store locally f
 ##  Acknowledgement
 Our work in built upon previous excellent works, like Explicd, MVP-CBM, CLEAR, PCBM, and many more. Appreciate so much.
 
+如果你希望在Markdown中展示一个可以复制的文本框，你可以使用三个反引号来包裹引用文本，像这样：
+
+
 # Reference
 If you find our work useful, please kindly cite it:
 
+```
+@article{author2026title,
+title={Title of the Paper},
+author={Author, Firstname and Author, Secondname},
+journal={Journal Name},
+year={2026},
+volume={X},
+pages={Y-Z},
+publisher={Publisher Name}
+}
+
+```
