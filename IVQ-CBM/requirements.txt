@@ -1,0 +1,16 @@
+einops
+matplotlib
+open-clip-torch
+PyYAML
+scikit-image
+scikit-learn
+scipy
+tensorboard
+timm
+tokenizers
+torch
+torchaudio
+torchvision
+tqdm
+transformers
+nvitop
