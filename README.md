@@ -20,11 +20,11 @@ Code is available at [https://github.com/Daryl-GSJ/IVQ-CBM](https://github.com/D
 ![Model Illustration](IVQ-CBM/assets/teasefigure.png)
 
 ## Method
-**1. Our method is quite simple and intuitive.**
+1. Our method is quite simple and intuitive.
 
-**2. **The proposed codebook in IVQ is dual-purpose. 1) Established as a lite regularizer to maintain elevated visual feature rank and feature diversity. 2) Pull each visual patch feature to its closed visual concept propotype (in codebook), which doesnot violate the intrinsic many-to-many mapping between patches and concepts.
+2. The proposed codebook in IVQ is dual-purpose. 1) Established as a lite regularizer to maintain elevated visual feature rank and feature diversity. 2) Pull each visual patch feature to its closed visual concept propotype (in codebook), which doesnot violate the intrinsic many-to-many mapping between patches and concepts.
 
-**3. **Magent module serves as a ferature aggregation function, inwhich the network could learn dinstict visual concept for each corresponding textual concept, achiveing better cross-modality alignment.
+3. Magent module serves as a ferature aggregation function, inwhich the network could learn dinstict visual concept for each corresponding textual concept, achiveing better cross-modality alignment.
 ![Model Illustration](IVQ-CBM/assets/pipeline.png)
 
 ## Usage
