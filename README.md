@@ -9,6 +9,7 @@ Concept Bottleneck Models (CBMs) achieve interpretability by interposing a human
 2. We propose IVQ, a novel regularization method that preserves feature diversity and prevents representational collapse without creating an information bottleneck. To exploit obtained rich representations, we introduce the Magnet Attention mechanism to effectively aggregate the regularized patch features into semantically meaningful concept prototypes.
 3. Extensive experiments on diverse benchmarks demonstrate that our IVQ-CBM consistently outperforms eight strong baselines, achieving state-of-the-art accuracy and learning better interpretable representations consistent with textual concepts.
 
+![Model Illustration](teaser.png)
 
 ## Usage
 ### Notes
