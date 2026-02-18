@@ -50,14 +50,10 @@ Our work in built upon previous excellent works, like Explicd, MVP-CBM, CLEAR, P
 If you find our work useful, please kindly cite it:
 
 ```
-@article{author2026title,
-title={Title of the Paper},
-author={Author, Firstname and Author, Secondname},
-journal={Journal Name},
-year={2026},
-volume={X},
-pages={Y-Z},
-publisher={Publisher Name}
+@inproceedings{gaoescaping,
+  title={Escaping Low-Rank Traps: Interpretable Visual Concept Learning via Implicit Vector Quantization},
+  author={Gao, Shujian and Wang, Yuan and Ma, Chenglong and Gao, Xin and Yan, Jiangtao and Ning, Junzhi and Tang, Cheng and Ji, Changkai and Xu, Huihui and Li, Wei and others},
+  booktitle={The Fourteenth International Conference on Learning Representations}
 }
 
 ```
