@@ -1,68 +1,79 @@
 # Escaping Low-Rank Traps: Interpretable Visual Concept Learning via Implicit Vector Quantization
-An official repository for our iclr 2026 accepted paper (poster), Escaping Low-Rank Traps: Interpretable Visual Concept Learning via Implicit Vector Quantization.
 
-For more details, please refer to [https://openreview.net/forum?id=9M2VrpAtR1].
+This is the official repository for our ICLR 2026 accepted paper, **"Escaping Low-Rank Traps: Interpretable Visual Concept Learning via Implicit Vector Quantization."** For full details, please refer to our [OpenReview page](https://openreview.net/forum?id=9M2VrpAtR1).
 
-## Abstract
+## 📖 Abstract
 
-Concept Bottleneck Models (CBMs) achieve interpretability by interposing a human-understandable concept layer between perception and label prediction. We first identify that the condition of *many-to-many* mapping is necessary for robust CBMs, a prerequisite that has been largely overlooked in previous approaches. While several recent methods have attempted to establish this relationship, we observe that they suffer from the fundamental issue of *representation collapse*, where visual patch features degenerate into a low-rank subspace during training, severely degrading the quality of learned concept activation vectors, thus hindering both model interpretability and downstream performance.
+Concept Bottleneck Models (CBMs) achieve interpretability by interposing a human-understandable concept layer between perception and label prediction. We first identify that the condition of *many-to-many* mapping is necessary for robust CBMs, a prerequisite that has been largely overlooked in previous approaches. While several recent methods have attempted to establish this relationship, we observe that they suffer from the fundamental issue of *representation collapse*, where visual patch features degenerate into a low-rank subspace during training. This severely degrades the quality of learned concept activation vectors, hindering both model interpretability and downstream performance.
 
-To address these issues, we propose Implicit Vector Quantization (IVQ), a lightweight regularizer that maintains high-rank, diverse representations throughout training. Rather than imposing a hard bottleneck via direct quantization, IVQ learns a codebook prior that anchors semantic information in visual features, allowing it to act as a proxy objective. To further exploit these high-rank concept-aware features, we propose Magnet Attention, which dynamically aggregates patch-level features into visual concept prototypes, explicitly modeling the many-to-many vision–concept correspondence.
+To address these issues, we propose **Implicit Vector Quantization (IVQ)**, a lightweight regularizer that maintains high-rank, diverse representations throughout training. Rather than imposing a hard bottleneck via direct quantization, IVQ learns a codebook prior that anchors semantic information in visual features, allowing it to act as a proxy objective. To further exploit these high-rank concept-aware features, we propose **Magnet Attention**, which dynamically aggregates patch-level features into visual concept prototypes, explicitly modeling the many-to-many vision–concept correspondence.
 
 Extensive experimental results show that our approach effectively prevents representational collapse and achieves state-of-the-art performance on diverse benchmarks. Our experiments further probe the low-rank phenomenon in representational collapse, finding that IVQ mitigates the information bottleneck and yields cross-modal representations with clearer, more interpretable consistency.
 
-Code is available at [https://github.com/Daryl-GSJ/IVQ-CBM](https://github.com/Daryl-GSJ/IVQ-CBM).
+## ✨ Highlights
 
+* **Identifying Representation Collapse:** We highlight that modeling the many-to-many relationship between concepts and patches is crucial for CBMs. We provide an in-depth analysis of *representational collapse*, a key challenge in training modern CBMs that hinders the establishment of Concept Activation Vectors (CAVs).
+* **Novel IVQ Regularization & Magnet Attention:** We introduce IVQ to preserve feature diversity without creating an information bottleneck. Paired with our novel Magnet Attention mechanism, our model effectively aggregates regularized patch features into semantically meaningful concept prototypes.
+* **State-of-the-Art Performance:** Extensive experiments across diverse benchmarks demonstrate that IVQ-CBM consistently outperforms eight strong baselines, achieving superior accuracy while learning interpretable representations that align beautifully with textual concepts.
 
-## Highlights
-1. We identify that the key to CBMs lies in modeling the many-to-many relationship between concepts and patches. Furthermore, we identify and analyze representational collapse, a key challenge in training modern CBMs that hinders the establishment of CAVs.
-2. We propose IVQ, a novel regularization method that preserves feature diversity and prevents representational collapse without creating an information bottleneck. To exploit obtained rich representations, we introduce the Magnet Attention mechanism to effectively aggregate the regularized patch features into semantically meaningful concept prototypes.
-3. Extensive experiments on diverse benchmarks demonstrate that our IVQ-CBM consistently outperforms eight strong baselines, achieving state-of-the-art accuracy and learning better interpretable representations consistent with textual concepts.
+## 💡 Key Insights & Analytical Value
 
-## Interesting point
-I think the most attractive point in this paper is providing us with an explicit and legible approach (visual feature rank dynamics throught trianing) to observe, understand, analysis, and drawing conclusion for cross modality alignment. 
+Beyond chasing state-of-the-art performance, we believe the most compelling aspect of this paper is the explicit, legible lens it provides for analyzing cross-modal alignment.
 
-In contrast to previous works which mainly focus on performance improvement, baseline competition, and textual concept intervention, our work differentiate as analysing from both mathmatical perspective and representation learning view (closely align with ICLR scope), bringing us interesting insights. 
+By tracking **visual feature rank dynamics throughout training**, we offer a transparent approach to observing and understanding how representations evolve. In contrast to previous works that primarily focus on baseline competition or textual concept intervention, our research examines CBMs from both mathematical and representation-learning perspectives.
 
-Hope this analytical technique and presentation approach would attract your attention. 
+We hope this analytical technique and presentation style offer valuable insights for your own research!
 
-![Model Illustration](IVQ-CBM/assets/teasefigure.png)
+## ⚙️ Method Overview
 
-## Method
-1. Our method is quite simple and intuitive.
+Our approach is simple, intuitive, and designed for seamless integration:
 
-2. The proposed codebook in IVQ is dual-purpose. 1) Established as a lite regularizer to maintain elevated visual feature rank and feature diversity. 2) Pull each visual patch feature to its closed visual concept propotype (in codebook), which doesnot violate the intrinsic many-to-many mapping between patches and concepts.
+1. **Implicit Vector Quantization (IVQ):** The proposed codebook in IVQ serves a dual purpose. First, it acts as a lightweight regularizer to maintain elevated visual feature rank and diversity. Second, it pulls each visual patch feature toward its closest visual concept prototype without violating the intrinsic many-to-many mapping between patches and concepts.
+2. **Magnet Attention Module:** This serves as a feature aggregation function. It allows the network to learn distinct visual concepts for each corresponding textual concept, achieving highly robust cross-modality alignment.
 
-3. Magent module serves as a ferature aggregation function, inwhich the network could learn dinstict visual concept for each corresponding textual concept, achiveing better cross-modality alignment.
-![Model Illustration](IVQ-CBM/assets/pipeline.png)
+## 🚀 Getting Started
 
-## Usage
-### Notes
-1. Our project supports any image reconnition dataset with annotations (highly flexible). You only need to build .npy dataset (follow IVQ-CBM/dataset/build_datasets.py) and respective concepts to run this repo (see below).
-2. For textual concepts, our project requires specific human-defined or llm-generated concepts for each dataset, we recommed you to generate concepts automatically.
-3. Once you have generated concepts, you could put them into concepts.py, define the mapping from concepts to class names. The preparatory work is now complete.
-4. For qucik deployment, we provide two datasets, i.e., ISIC2018 and BUSI, with respective textual concepts in IVQ-CBM/concepts.py. In the following, we will use these datasets for running.
-5. Training data is available in https://drive.google.com/drive/folders/1z7ynsviy5CLgjdj3U0pIYOhPDeDh4Fs_?usp=sharing.
+### Prerequisites & Data Preparation
 
-### Running
-1. Build python running environment, eg. Python 3.9.21, torch 2.5.1. For quciker building, I suggent you directly use this instruction:
-   pip install -r requirements.txt
-2. Run: python train.py. You could adjust parameters, such as dataset, concept_dim, concept_num, and num_class_dict, to support different settings in different datasets.
-3. Evaluate.
-We also track the visual feature tranks throughout training, and store locally for visualization. -- Key motivation and finding in our work.
+1. **Flexible Dataset Support:** Our project supports *any* image recognition dataset with annotations. You only need to build a `.npy` dataset (following `IVQ-CBM/dataset/build_datasets.py`) and define the respective concepts.
+2. **Textual Concepts:** The model requires specific human-defined or LLM-generated concepts for each dataset. We recommend generating these automatically. Once generated, place them into `concepts.py` and define the mapping from concepts to class names.
+3. **Quick Start Datasets:** For quick deployment, we provide the **ISIC2018** and **BUSI** datasets, with their respective textual concepts already configured in `IVQ-CBM/concepts.py`.
+4. **Download Data:** Training data can be downloaded from our [Google Drive](https://drive.google.com/drive/folders/1z7ynsviy5CLgjdj3U0pIYOhPDeDh4Fs_?usp=sharing). Please download and place the files into the `data/` directory.
 
-##  Acknowledgement
-Our work in built upon previous excellent works, like Explicd, MVP-CBM, CLEAR, PCBM, and many more. Appreciate so much.
+### Installation & Training
 
-
-# Reference
-If you find our work useful, please kindly cite it:
+1. **Environment Setup:** We recommend using Python 3.9+ and PyTorch 2.5+. You can quickly build the environment using:
+```bash
+pip install -r requirements.txt
 
 ```
+
+
+2. **Training:** Run the main training script. You can easily adjust arguments to support different settings and datasets:
+```bash
+python train.py --dataset ISIC2018 --concept_dim 512 --concept_num 50
+
+```
+
+
+3. **Evaluation & Visualization:** During evaluation, the codebase tracks visual feature ranks throughout the training process and stores them locally. We highly encourage visualizing these logs, as they form the core motivation and finding of our work!
+
+## 🙏 Acknowledgements
+
+This work is built upon excellent previous research in the field, including Explicd, MVP-CBM, CLEAR, PCBM, and many more. We deeply appreciate the authors for making their code and insights publicly available.
+
+## 📖 Citation
+
+If you find our work or analytical approach useful in your research, please consider citing:
+
+```bibtex
 @inproceedings{gaoescaping,
   title={Escaping Low-Rank Traps: Interpretable Visual Concept Learning via Implicit Vector Quantization},
   author={Gao, Shujian and Wang, Yuan and Ma, Chenglong and Gao, Xin and Yan, Jiangtao and Ning, Junzhi and Tang, Cheng and Ji, Changkai and Xu, Huihui and Li, Wei and others},
-  booktitle={The Fourteenth International Conference on Learning Representations}
+  booktitle={The Fourteenth International Conference on Learning Representations},
+  year={2026}
 }
 
 ```
+
+---
