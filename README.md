@@ -17,6 +17,13 @@ Code is available at [https://github.com/Daryl-GSJ/IVQ-CBM](https://github.com/D
 2. We propose IVQ, a novel regularization method that preserves feature diversity and prevents representational collapse without creating an information bottleneck. To exploit obtained rich representations, we introduce the Magnet Attention mechanism to effectively aggregate the regularized patch features into semantically meaningful concept prototypes.
 3. Extensive experiments on diverse benchmarks demonstrate that our IVQ-CBM consistently outperforms eight strong baselines, achieving state-of-the-art accuracy and learning better interpretable representations consistent with textual concepts.
 
+## Interesting point
+I think the most attractive point in this paper is providing us with an explicit and legible approach (visual feature rank dynamics throught trianing) to observe, understand, analysis, and drawing conclusion for cross modality alignment. 
+
+In contrast to previous works which mainly focus on performance improvement, baseline competition, and textual concept intervention, our work differentiate as analysing from both mathmatical perspective and representation learning view (closely align with ICLR scope), bringing us interesting insights. 
+
+Hope this analytical technique and presentation approach would attract your attention. 
+
 ![Model Illustration](IVQ-CBM/assets/teasefigure.png)
 
 ## Method
