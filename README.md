@@ -46,3 +46,24 @@ Our approach is simple, intuitive, and designed for seamless integration:
 1. **Environment Setup:** We recommend using Python 3.9+ and PyTorch 2.5+. You can quickly build the environment using:
    ```bash
    pip install -r requirements.txt
+   ```
+2. **Training:** Run the main training script. You can easily adjust arguments to support different settings and datasets:
+   ```bash
+   python train.py --dataset ISIC2018
+   ```
+3. **Evaluation & Visualization:** During evaluation, the codebase tracks visual feature ranks throughout the training process and stores them locally. We highly encourage visualizing these logs, as they form the core motivation and finding of our work!
+
+## 🙏 Acknowledgements
+Our work is built upon previous excellent works, like Explicd, MVP-CBM, CLEAR, PCBM, and many more. We deeply appreciate the authors for making their code and insights publicly available.
+
+## 📖 Citation
+If you find our work or analytical approach useful in your research, please kindly cite it:
+
+```bibtex
+@inproceedings{gaoescaping,
+  title={Escaping Low-Rank Traps: Interpretable Visual Concept Learning via Implicit Vector Quantization},
+  author={Gao, Shujian and Wang, Yuan and Ma, Chenglong and Gao, Xin and Yan, Jiangtao and Ning, Junzhi and Tang, Cheng and Ji, Changkai and Xu, Huihui and Li, Wei and others},
+  booktitle={The Fourteenth International Conference on Learning Representations},
+  year={2026}
+}
+```
