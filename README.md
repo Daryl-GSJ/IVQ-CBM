@@ -5,6 +5,7 @@
 
 This is the official repository for our ICLR 2026 accepted paper, **"Escaping Low-Rank Traps: Interpretable Visual Concept Learning via Implicit Vector Quantization."** For full details, please refer to our [OpenReview page](https://openreview.net/forum?id=9M2VrpAtR1).
 
+If you have any query or doubt, please feel free to email me -- 24210860027@m.fudan.edu.cn.
 ## 📖 Abstract
 
 Concept Bottleneck Models (CBMs) achieve interpretability by interposing a human-understandable concept layer between perception and label prediction. We first identify that the condition of *many-to-many* mapping is necessary for robust CBMs, a prerequisite that has been largely overlooked in previous approaches. While several recent methods have attempted to establish this relationship, we observe that they suffer from the fundamental issue of *representation collapse*, where visual patch features degenerate into a low-rank subspace during training. This severely degrades the quality of learned concept activation vectors, hindering both model interpretability and downstream performance.
